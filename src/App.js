@@ -17,7 +17,6 @@ class App extends Component {
   };
   render() {
     const { childs, index } = this.state;
-    console.log(index);
     return (
       <div className="App" onClick={this.onClick}>
         {childs[index].map((val, i) => <div key={val}>{val}</div>)}
