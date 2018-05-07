@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import './App.css';
-import A from './A';
-import B from './B';
-import C from './C';
 
-class App extends Component {
+class C extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      index: 0,
+    };
     console.log(`${this.constructor.name} constructor`);
   }
   componentWillMount() {
@@ -16,15 +15,17 @@ class App extends Component {
     console.log(`${this.constructor.name} did mount`);
   }
   onClick = () => {
+    const index = this.state.index + 1;
+    this.setState({ index });
     console.log(`${this.constructor.name} click`);
   };
   render() {
     return (
-      <div className="App">
-        <div>Hello World</div>
+      <div className="C" onClick={this.onClick}>
+        {this.props.children}
       </div>
     );
   }
 }
 
-export default App;
+export default C;
