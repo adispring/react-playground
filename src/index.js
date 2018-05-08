@@ -43,7 +43,8 @@ class ExampleApplication extends React.Component {
   }
 
   onClickHandler() {
-    /* this.setState({ message: 'click state message' }); */
+    this.setState({ message: 'click state message' });
+    this.setState({ message: 'another click state message' });
   }
 
   render() {
