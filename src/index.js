@@ -12,7 +12,7 @@ class ExampleApplication extends React.Component {
   constructor(props) {
     super(props);
     console.log(`${this.constructor.name} constructor`);
-    this.state = { message: 'no message' };
+    this.state = { message: 'no message', index: 0 };
   }
 
   componentWillMount() {
@@ -43,8 +43,9 @@ class ExampleApplication extends React.Component {
   }
 
   onClickHandler() {
-    this.setState({ message: 'click state message' });
-    this.setState({ message: 'another click state message' });
+    const { index } = this.state;
+    this.setState({ index: index + 1 });
+    this.setState({ index: index + 2 });
   }
 
   render() {
@@ -54,7 +55,7 @@ class ExampleApplication extends React.Component {
           {' '}
           set state button{' '}
         </button>
-        <ChildCmp childMessage={this.state.message} />
+        <ChildCmp childMessage={this.state.index} />
         And some text as well!
       </div>
     );
